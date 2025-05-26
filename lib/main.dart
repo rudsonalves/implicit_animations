@@ -132,8 +132,6 @@ class _AnimatedListTileState extends State<AnimatedListTile> {
               child: const Icon(Icons.expand_more),
             ),
           ),
-
-          // children: [Text('Isto está na expansão $index')],
         ),
         AnimatedCrossFade(
           firstChild: Column(

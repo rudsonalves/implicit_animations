@@ -113,7 +113,7 @@ class _AnimatedListTileState extends State<AnimatedListTile> {
       children: [
         AnimatedCrossFade(
           firstChild: const Divider(),
-          secondChild: const SizedBox.shrink(),
+          secondChild: _fixedWidth(const SizedBox.shrink()),
           crossFadeState: isOpen
               ? CrossFadeState.showFirst
               : CrossFadeState.showSecond,
@@ -146,7 +146,7 @@ class _AnimatedListTileState extends State<AnimatedListTile> {
               ),
             ],
           ),
-          secondChild: const SizedBox.shrink(),
+          secondChild: _fixedWidth(const SizedBox.shrink()),
           crossFadeState: isOpen
               ? CrossFadeState.showFirst
               : CrossFadeState.showSecond,
@@ -154,7 +154,7 @@ class _AnimatedListTileState extends State<AnimatedListTile> {
         ),
         AnimatedCrossFade(
           firstChild: const Divider(),
-          secondChild: const SizedBox.shrink(),
+          secondChild: _fixedWidth(const SizedBox.shrink()),
           crossFadeState: isOpen
               ? CrossFadeState.showFirst
               : CrossFadeState.showSecond,
@@ -163,4 +163,11 @@ class _AnimatedListTileState extends State<AnimatedListTile> {
       ],
     );
   }
+
+  Widget _fixedWidth(Widget child) => LayoutBuilder(
+    builder: (context, constraints) => SizedBox(
+      width: constraints.maxWidth,
+      child: child,
+    ),
+  );
 }
